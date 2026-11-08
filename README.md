@@ -11,7 +11,7 @@ System jest odpowiedzią na znikomą konkurencję dla platformy od studia Valve 
 
 | Osoba | Login GitHub/GitLab | Rola główna | Role dodatkowe |
 |---|---|---|---|
-| Dawid Cichosz | Derpuu | Kierownik projektu | |
+| Dawid Cichosz | @Derpuu | Kierownik projektu | |
 | Ewelina Pikul | @ewelinapikul345 | Analityk wymagań | |
 | Natalia Stopa | @nataliastopa | Architekt / projektant BD | |
 | Olga Mróz | @olgamroz | Projektant UX/UI | |
