@@ -57,5 +57,6 @@
 ## 1.8. Rozwiązania konkurencyjne / analiza istniejących narzędzi
 
 | Rozwiązanie | Co robi dobrze | Czego brakuje | Wniosek dla naszego projektu |
-| Steam | Rozbudowana biblioteka gier, możliwość tworzenia własnych kolekcji i kategorii, filtrowanie gier, wyszukiwarka, rekomendacje dopasowane do użytkownika. Wyświetla okładki, opisy, osiągnięcia i informacje o czasie gry. | Możliwość filtrowania i wyszukiwania gier. Duża liczba funkcji przytłacza nowych użytkowników | Należy zadbać o prostą nawigację i intuicyjność |
-| Epic Games Store | Prosty widok biblioteki z okładkami gier, wyszukiwarka, filtrowanie według gatunku i innych cech, możliwość tworzenia własnych kolekcji oraz oznaczania ulubionych gier | Mniej rozbudowane możliwości organizowania biblioteki niż w Steam | Układ biblioteki oparty na okładkach gier, prostą wyszukiwarkę i filtrowanie, oznaczanie ulubionych pozycji |
+|---|---|---|---|
+| Steam | Rozbudowana biblioteka gier, możliwość tworzenia własnych kolekcji i kategorii, filtrowanie gier, wyszukiwarka, rekomendacje dopasowane do użytkownika. Wyświetla okładki, opisy, osiągnięcia i informacje o czasie gry. | Duża liczba funkcji może przytłaczać nowych użytkowników. | Należy zadbać o prostą nawigację i intuicyjność interfejsu. |
+| Epic Games Store | Prosty widok biblioteki z okładkami gier, wyszukiwarka, filtrowanie według gatunku i innych cech, możliwość tworzenia własnych kolekcji oraz oznaczania ulubionych gier. | Mniej rozbudowane możliwości organizowania biblioteki niż w Steam. | Warto zastosować układ biblioteki oparty na okładkach gier, prostą wyszukiwarkę, filtrowanie i oznaczanie ulubionych pozycji. |
