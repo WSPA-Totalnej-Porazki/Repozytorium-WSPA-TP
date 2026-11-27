@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| **Problem** | [na czym polega problem] |
-| **dotyczy** | [kogo dotyczy] |
-| **skutkiem jest** | [jakie są skutki problemu] |
-| **dobre rozwiązanie** | [jakie korzyści da system] |
+| **Problem** | Rynek cyfrowej dystrybucji gier komputerowych jest zdominowany przez jedną platformę (Steam), której rozbudowany interfejs utrudnia nowym Graczom znalezienie i kupienie Gry, a małym Wydawcom dotarcie do Graczy. |
+| **dotyczy** | Graczy (zwłaszcza nowych i amatorskich), małych i niezależnych Wydawców oraz pracowników obsługi, którzy rozpatrują Reklamacje. |
+| **skutkiem jest** | Gracze tracą czas na szukanie Gier i rezygnują z zakupu, mali Wydawcy giną w ogromnej ofercie, a brak konkurencji ogranicza wybór usług na rynku. |
+| **dobre rozwiązanie** | Gracz szybko znajduje i kupuje Grę i ma wszystkie Gry w jednej Bibliotece gier, Wydawca samodzielnie publikuje Grę i ustala jej cenę, a Reklamacje są rozpatrywane w jednym miejscu. |
 
 ## 1.2. Cel biznesowy i mierniki sukcesu
 
-<!-- Cele mierzalne (SMART), np. „skrócenie czasu obsługi rezerwacji z 10 do 3 minut”. -->
-
 | ID | Cel | Miernik | Wartość docelowa |
 |---|---|---|---|
-| CEL-01 | | | |
+| CEL-01 | Skrócić czas, w którym nowy Gracz znajduje i kupuje Grę | Mediana czasu od pierwszego wyszukania Gry do opłacenia Zamówienia (test z 10 nowymi Graczami) | ≤ 3 min w teście przed uruchomieniem platformy |
+| CEL-02 | Umożliwić małym Wydawcom samodzielną publikację Gier | Liczba Gier o Statusie gry OPUBLIKOWANA dodanych przez niezależnych Wydawców | ≥ 20 Gier w ciągu 6 miesięcy od uruchomienia |
+| CEL-03 | Rozpatrywać Reklamacje szybko i w jednym miejscu | Odsetek Reklamacji o Statusie reklamacji UZNANA lub ODRZUCONA w ciągu 3 dni roboczych od złożenia | ≥ 90% Reklamacji w każdym miesiącu od uruchomienia |
 
 ## 1.3. Interesariusze
 
@@ -33,19 +33,33 @@
 
 ### W zakresie (MVP — realizacja w cz. 2)
 
-- [moduł / obszar funkcjonalny]
+- Konto: rejestracja, logowanie, wylogowanie, zmiana hasła, usunięcie Konta, profil Gracza
+- Katalog gier: przeglądanie, wyszukiwanie po nazwie, filtrowanie po Gatunku i cenie, strona Gry
+- Zamówienie i Płatność: zakup Gry przez zewnętrzny System płatności, nadanie Licencji
+- Biblioteka gier: lista Gier Gracza, pobieranie aktualnej Wersji gry, ukrycie Gry
+- Oceny i Recenzje Gier wystawiane przez Graczy z Licencją
+- Panel Wydawcy: Konto deweloperskie, dodawanie Gry i Wersji gry, ustalanie ceny i Promocji, lista własnych Gier
+- Reklamacje i Zwroty: złożenie Reklamacji, rozpatrzenie przez Agenta wsparcia, Zwrot przez System płatności
+- Moderacja: weryfikacja Gier przed publikacją, usuwanie Recenzji, Zgłoszenia naruszenia, blokowanie Kont (Administrator)
 
 ### Poza zakresem (świadomie wyłączone)
 
-- [czego system NIE robi, np. płatności online, aplikacja mobilna natywna]
+- Własny program do uruchamiania Gier (launcher) i automatyczne pobieranie nowych Wersji gry na urządzenie Gracza
+- Funkcje społecznościowe poza Ocenami i Recenzjami: znajomi, czat, grupy, fora
+- Natywna aplikacja mobilna (platforma działa w przeglądarce, także na telefonie)
+- Handel przedmiotami z Gier między Graczami i portfel środków na platformie
+- Wiele walut i języków (MVP: PLN, język polski)
 
 ### Możliwe rozszerzenia (po MVP)
 
--
+- Lista życzeń i powiadomienia o Promocjach
+- Rekomendacje Gier dopasowane do Gracza
+- Własne kolekcje i ulubione Gry w Bibliotece gier
+- Osiągnięcia i statystyki czasu gry
+- Logowanie przez konta zewnętrzne (Google)
+- Wersja anglojęzyczna i inne waluty
 
 ## 1.6. Kontekst i systemy zewnętrzne
-
-<!-- Z jakimi systemami zewnętrznymi system współpracuje (poczta e-mail, bramka płatności, mapy, logowanie przez Google…)? -->
 
 ## 1.7. Założenia i ograniczenia
 
