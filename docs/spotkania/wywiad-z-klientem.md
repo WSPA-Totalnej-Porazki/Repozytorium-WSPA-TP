@@ -46,4 +46,10 @@ Wartości bazowe celów z sekcji 1.2 (pytamy, jak jest dziś):
 3. W jakich sytuacjach Gracz może otrzymać Zwrot za Grę i kto o tym decyduje?
 4. Co dzieje się z Grami w Bibliotece gier Gracza, gdy Wydawca wycofa Grę albo Administrator ją zablokuje?
 
+### D. Dane, raporty, systemy zewnętrzne
+
+1. Z jakim operatorem płatności lub bankiem już Państwo współpracują i jakie metody płatności są potrzebne?
+2. Ile Gier, Graczy i Zamówień dziennie spodziewają się Państwo na starcie i po roku?
+3. Jakie raporty i zestawienia są potrzebne właścicielowi platformy i Wydawcom (np. sprzedaż, Zwroty)?
+
 ## Notatki z wywiadu (protokół dopiszemy w M2)
