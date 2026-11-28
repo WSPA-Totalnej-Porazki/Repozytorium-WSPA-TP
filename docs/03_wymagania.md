@@ -228,6 +228,50 @@ Scenariusz: Brak Licencji (RB-01)
   Wtedy nie zobaczę formularza Oceny i Recenzji, tylko informację „Ocenić Grę mogą tylko jej posiadacze”
 ```
 
+### US-09: Złożenie Reklamacji
+
+**Jako** Gracz **chcę** złożyć Reklamację na Grę, która nie działa, **aby** odzyskać pieniądze.
+
+- Wymaganie: WF-12 · Priorytet: M · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Reklamacja w terminie (RB-02)
+  Zakładając że 3 dni temu opłaciłam Zamówienie na Grę „Kosmiczna Farma 2”, a mój Czas gry to 40 min
+  Gdy złożę Reklamację z opisem „Gra nie uruchamia się po instalacji”
+  Wtedy Reklamacja otrzyma Status reklamacji ZŁOŻONA
+  I otrzymam e-mail z numerem Reklamacji
+
+Scenariusz: Reklamacja po terminie (RB-02)
+  Zakładając że 20 dni temu opłaciłam Zamówienie na Grę „Kosmiczna Farma 2”
+  Gdy spróbuję złożyć Reklamację
+  Wtedy zobaczę komunikat „Minął 14-dniowy termin na Reklamację”
+  I Reklamacja nie zostanie utworzona
+```
+
+### US-10: Rozpatrzenie Reklamacji
+
+**Jako** Agent wsparcia **chcę** uznać lub odrzucić Reklamację, widząc historię Zamówień i Czas gry Gracza, **aby** szybko i sprawiedliwie podjąć decyzję.
+
+- Wymaganie: WF-13 · Priorytet: M · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Uznanie Reklamacji (RB-04)
+  Zakładając że Reklamacja na Grę za 59,99 zł ma Status reklamacji W_TOKU
+  Gdy uznam Reklamację
+  Wtedy Reklamacja otrzyma status UZNANA, a System płatności wykona Zwrot 59,99 zł
+  I Licencja Gracza na tę Grę zostanie cofnięta
+
+Scenariusz: Odrzucenie bez uzasadnienia
+  Zakładając że Reklamacja ma Status reklamacji W_TOKU
+  Gdy spróbuję ją odrzucić bez wpisania uzasadnienia
+  Wtedy zobaczę komunikat „Podaj uzasadnienie odrzucenia”
+  I Status reklamacji się nie zmieni
+```
+
 ### US-11: Rejestracja Konta deweloperskiego
 
 **Jako** Wydawca **chcę** założyć Konto deweloperskie dla mojego studia, **aby** publikować i sprzedawać swoje Gry.
@@ -311,6 +355,28 @@ Scenariusz: Zbyt duża obniżka (RB-05)
   Gdy podam obniżkę 95%
   Wtedy zobaczę komunikat „Obniżka musi wynosić od 5% do 90%”
   I Promocja nie zostanie zapisana
+```
+
+### US-15: Weryfikacja gry
+
+**Jako** Administrator **chcę** sprawdzić przesłaną Grę i ją opublikować albo odrzucić, **aby** w Katalogu gier były tylko Gry zgodne z regulaminem.
+
+- Wymaganie: WF-21 · Priorytet: M · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Publikacja Gry
+  Zakładając że Gra „Kosmiczna Farma 2” ma Status gry W_WERYFIKACJI
+  Gdy zatwierdzę Weryfikację gry
+  Wtedy Gra otrzyma Status gry OPUBLIKOWANA i pojawi się w Katalogu gier
+  I Wydawca otrzyma e-mail o publikacji
+
+Scenariusz: Odrzucenie bez uzasadnienia (RB-07)
+  Zakładając że Gra ma Status gry W_WERYFIKACJI
+  Gdy spróbuję ją odrzucić bez uzasadnienia
+  Wtedy zobaczę komunikat „Podaj uzasadnienie odrzucenia”
+  I Status gry się nie zmieni
 ```
 
 ## 3.4. Reguły biznesowe
