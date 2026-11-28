@@ -40,12 +40,108 @@ Kategorie jakości wg ISO/IEC 25010:2023 (w nawiasie nazwa angielska).
 
 | ID | Kategoria | Wymaganie | Miara / sposób weryfikacji | Priorytet |
 |---|---|---|---|---|
-| | | | | |
+| WNF-01 | Efektywność wydajnościowa (performance efficiency) | Strona Katalogu gier z 24 Grami ładuje się w czasie ≤ 2 s dla 95% żądań przy 500 równoczesnych Graczach (U-02). | test obciążeniowy (np. k6 / JMeter) w środowisku testowym | M |
+| WNF-02 | Efektywność wydajnościowa (performance efficiency) | Wyszukanie Gry po nazwie zwraca wyniki w czasie ≤ 1 s dla 95% żądań przy 500 równoczesnych Graczach i 10 000 Gier w Katalogu gier. | test obciążeniowy | S |
+| WNF-03 | Bezpieczeństwo (security) | Hasła są przechowywane wyłącznie jako skrót Argon2id lub bcrypt; po 5 nieudanych logowaniach Konto jest blokowane na 15 min (RB-08). | przegląd kodu + test automatyczny logowania | M |
+| WNF-04 | Bezpieczeństwo (security) | Cała komunikacja odbywa się przez HTTPS (TLS 1.2 lub nowszy). System nie przechowuje danych kart płatniczych; dane karty wpisuje się tylko na stronie Systemu płatności. | skan konfiguracji TLS (np. SSL Labs, ocena ≥ A) + przegląd bazy danych | M |
+| WNF-05 | Niezawodność (reliability) | Dostępność (availability) platformy ≥ 99,5% w miesiącu, 24/7 (U-08); utrata danych (RPO) ≤ 24 h, czas przywrócenia (RTO) ≤ 4 h. | monitoring dostępności + test odtworzenia kopii zapasowej | M |
+| WNF-06 | Łatwość utrzymania (maintainability) | Pokrycie testami jednostkowymi logiki reguł biznesowych RB-01…RB-10 ≥ 80%; brak błędów krytycznych w analizie statycznej kodu. | raport pokrycia testów + raport analizy statycznej w każdym PR | S |
+| WNF-07 | Ograniczenie prawne (poza ISO 25010) | System przetwarza dane osobowe Graczy i Wydawców zgodnie z RODO; po usunięciu Konta dane osobowe są usuwane lub anonimizowane w ciągu 30 dni. | przegląd z listą kontrolną z 08_bezpieczenstwo | M |
 
 ## 3.3. Historyjki użytkownika
 
 Format: Jako <aktor> chcę <cel>, aby <korzyść>. Kryteria akceptacji w formacie Given/When/Then (Zakładając/Gdy/Wtedy), min. 2 scenariusze, w tym błędny. Szacunek: S (≤ 3 pkt), M (5 pkt), L (8 pkt).
 
+### US-02: Logowanie do Konta
+
+**Jako** Gracz **chcę** zalogować się e-mailem i hasłem, **aby** mieć dostęp do swojej Biblioteki gier i Zamówień.
+
+- Wymaganie: WF-02 · Priorytet: M · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Udane logowanie
+  Zakładając że mam Konto AKTYWNE z e-mailem anna.k@example.com
+  Gdy podam poprawne hasło
+  Wtedy zostanę zalogowana i zobaczę swoją Bibliotekę gier
+
+Scenariusz: Blokada po 5 nieudanych próbach (RB-08)
+  Zakładając że 4 razy z rzędu podałam błędne hasło
+  Gdy po raz piąty podam błędne hasło
+  Wtedy Konto otrzyma Status konta ZABLOKOWANE_CZASOWO na 15 minut
+  I zobaczę komunikat „Zbyt wiele prób. Spróbuj ponownie za 15 minut”
+```
+
+### US-05: Zakup Gry
+
+**Jako** Gracz **chcę** kupić Grę i zapłacić za nią kartą lub BLIK-iem, **aby** od razu móc ją pobrać.
+
+- Wymaganie: WF-06 · Priorytet: M · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Udany zakup
+  Zakładając że jestem zalogowanym Graczem bez Licencji na Grę „Kosmiczna Farma 2” za 59,99 zł
+  Gdy złożę Zamówienie i System płatności autoryzuje Płatność 59,99 zł
+  Wtedy Zamówienie otrzyma status OPŁACONE
+  I Gra pojawi się w mojej Bibliotece gier (WF-07)
+
+Scenariusz: Płatność odrzucona
+  Zakładając że złożyłam Zamówienie na Grę za 59,99 zł
+  Gdy System płatności odrzuci Płatność z powodu braku środków
+  Wtedy Płatność otrzyma Status płatności ODRZUCONA, a Zamówienie pozostanie NOWE
+  I zobaczę komunikat „Płatność odrzucona. Spróbuj inną metodą płatności”
+
+Scenariusz: Gra już kupiona (RB-06)
+  Zakładając że mam Licencję na Grę „Kosmiczna Farma 2”
+  Gdy otworzę stronę tej Gry
+  Wtedy zamiast przycisku „Kup” zobaczę „W Bibliotece gier”
+```
+
+### US-07: Pobranie Gry
+
+**Jako** Gracz **chcę** pobrać aktualną Wersję gry z Biblioteki gier, **aby** zainstalować Grę na swoim komputerze.
+
+- Wymaganie: WF-08 · Priorytet: M · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Pobranie aktualnej Wersji gry
+  Zakładając że mam Licencję na Grę „Kosmiczna Farma 2”, której aktualna Wersja gry to 1.2.0
+  Gdy kliknę „Pobierz” w Bibliotece gier
+  Wtedy rozpocznie się Pobranie plików Wersji gry 1.2.0
+
+Scenariusz: Brak Licencji
+  Zakładając że nie mam Licencji na Grę „Mroczny Las”
+  Gdy spróbuję otworzyć link do Pobrania tej Gry
+  Wtedy zobaczę komunikat „Nie masz dostępu do tej Gry”
+  I Pobranie się nie rozpocznie
+```
+
+### US-11: Rejestracja Konta deweloperskiego
+
+**Jako** Wydawca **chcę** założyć Konto deweloperskie dla mojego studia, **aby** publikować i sprzedawać swoje Gry.
+
+- Wymaganie: WF-16 · Priorytet: M · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Udana rejestracja
+  Zakładając że studio „Pixel Lublin” nie ma Konta deweloperskiego
+  Gdy podam nazwę studia, e-mail kontakt@pixellublin.example i NIP 9462712345
+  Wtedy powstanie Konto z Rolą konta WYDAWCA
+  I będę mógł dodać pierwszą Grę
+
+Scenariusz: Niepoprawny NIP
+  Zakładając że rejestruję Konto deweloperskie
+  Gdy podam NIP „123”
+  Wtedy zobaczę komunikat „NIP musi mieć 10 cyfr”
+  I Konto nie zostanie utworzone
+```
 
 ## 3.4. Reguły biznesowe
 
