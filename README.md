@@ -44,16 +44,16 @@ R = wykonuje, A = odpowiada (tylko jedna osoba), C = konsultowany, I = informowa
 | 00 | [Zarządzanie projektem](docs/00_zarzadzanie.md) | Dawid Cichosz | 🟩 |
 | 01 | [Wizja i zakres](docs/01_wizja_i_zakres.md) | Dawid Cichosz | 🟩 |
 | 02 | [Słownik pojęć](docs/02_slownik.md) | Ewelina Pikul | 🟩 |
-| 03 | [Wymagania](docs/03_wymagania.md) | Ewelina Pikul | ⬜ |
+| 03 | [Wymagania](docs/03_wymagania.md) | Ewelina Pikul | 🟩 |
 | 04 | [Procesy i przypadki użycia](docs/04_procesy_i_przypadki_uzycia.md) | Ewelina Pikul | ⬜ |
-| 05 | [Architektura](docs/05_architektura.md) + [ADR](docs/adr/) | Natalia Stopa | ⬜ |
+| 05 | [Architektura](docs/05_architektura.md) + [ADR](docs/adr/) | Natalia Stopa | 🟨 |
 | 06 | [Model danych](docs/06_model_danych.md) | Natalia Stopa | ⬜ |
 | 07 | [Interfejs użytkownika](docs/07_interfejs_uzytkownika.md) + [makiety](docs/makiety/) | Olga Mróz | ⬜ |
 | 08 | [Bezpieczeństwo](docs/08_bezpieczenstwo.md) | Natalia Stopa | ⬜ |
 | 09 | [Wdrożenie](docs/09_wdrozenie.md) | Kacper Graczyk | ⬜ |
 | 10 | [Testy i jakość](docs/10_testy_i_jakosc.md) | Kacper Graczyk | ⬜ |
 | 11 | [Plan realizacji cz. 2](docs/11_plan_realizacji.md) | Dawid Cichosz | ⬜ |
-| — | [Macierz śledzenia wymagań](docs/macierz_sledzenia.md) | Kacper Graczyk | ⬜ |
+| — | [Macierz śledzenia wymagań](docs/macierz_sledzenia.md) | Kacper Graczyk | 🟨 |
 
 Statusy: ⬜ nie rozpoczęto · 🟨 w trakcie · 🟩 gotowe do recenzji · ✅ zatwierdzone
 
@@ -62,7 +62,7 @@ Statusy: ⬜ nie rozpoczęto · 🟨 w trakcie · 🟩 gotowe do recenzji · ✅
 | Tag | Zawartość | Termin | Oddano |
 |---|---|---|---|
 | `m1` | repozytorium i tablica zadań, zespół i RACI, wizja i zakres, interesariusze, rejestr ryzyk, wstępny słownik, ćwiczenie git, pytania do wywiadu | 06.11.2026 | 28.11.2026 |
-| `m2` | słownik, wymagania WF/WNF z MoSCoW, reguły biznesowe, historyjki z kryteriami akceptacji, C4 kontekst, protokół wywiadu, aktualizacja zakresu | 04.12.2026 | |
+| `m2` | słownik, wymagania WF/WNF z MoSCoW, reguły biznesowe, historyjki z kryteriami akceptacji, C4 kontekst, protokół wywiadu, aktualizacja zakresu | 04.12.2026 | 28.11.2026 |
 | `m3` | UC, procesy, model dziedziny, ERD, architektura, ADR, bezpieczeństwo | 08.01.2027 | |
 | `m4` | UI, wdrożenie, testy, plan realizacji, macierz śledzenia | 17.01.2027 | |
 | `v1.0` | wersja końcowa | 29.01.2027 | |
