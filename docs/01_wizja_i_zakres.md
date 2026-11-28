@@ -64,7 +64,7 @@ System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem
 
 ### W zakresie (MVP — realizacja w cz. 2)
 
-- Konto: rejestracja, logowanie, wylogowanie, zmiana hasła, usunięcie Konta, profil Gracza
+- Konto: rejestracja, logowanie (także Logowanie zewnętrzne kontem Google, Z-01), wylogowanie, zmiana hasła, usunięcie Konta, Profil Gracza
 - Katalog gier: przeglądanie, wyszukiwanie po nazwie, filtrowanie po Gatunku i cenie, strona Gry
 - Zamówienie i Płatność: zakup Gry przez zewnętrzny System płatności, nadanie Licencji
 - Biblioteka gier: lista Gier Gracza, pobieranie aktualnej Wersji gry, ukrycie Gry
@@ -80,6 +80,8 @@ System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem
 - Natywna aplikacja mobilna (platforma działa w przeglądarce, także na telefonie)
 - Handel przedmiotami z Gier między Graczami i portfel środków na platformie
 - Wiele walut i języków (MVP: PLN, język polski)
+- Raporty sprzedaży dla Wydawców (WF-25, priorytet W)
+- Lista życzeń (WF-26, priorytet W; w rozszerzeniach)
 
 ### Możliwe rozszerzenia (po MVP)
 
@@ -87,7 +89,6 @@ System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem
 - Rekomendacje Gier dopasowane do Gracza
 - Własne kolekcje i ulubione Gry w Bibliotece gier
 - Osiągnięcia i statystyki czasu gry
-- Logowanie przez konta zewnętrzne (Google)
 - Wersja anglojęzyczna i inne waluty
 
 ## 1.6. Kontekst i systemy zewnętrzne
@@ -96,17 +97,18 @@ System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem
 |---|---|---|---|
 | System płatności (operator płatności) | Autoryzacja Płatności za Zamówienie i wykonanie Zwrotu po uznanej Reklamacji | kwota, numer Zamówienia, wynik autoryzacji, polecenie Zwrotu | WSPA GIER ↔ System płatności |
 | Serwer poczty e-mail | Wysyłka wiadomości do Gracza i Wydawcy: potwierdzenie rejestracji Konta, reset hasła, potwierdzenie Zamówienia, decyzja w sprawie Reklamacji | adres e-mail, treść wiadomości | WSPA GIER → e-mail |
+| Dostawca tożsamości (Google) | Logowanie zewnętrzne Gracza kontem Google (zwrot akcji Z-01) | adres e-mail, identyfikator konta Google, potwierdzenie tożsamości | WSPA GIER ↔ Google |
 | Usługa przechowywania plików (chmura) | Przechowywanie plików Wersji gry wgranych przez Wydawcę i udostępnianie ich do pobrania Graczom z Licencją | pliki Wersji gry, link do pobrania | WSPA GIER ↔ usługa plików |
 
-W MVP nie przewidujemy logowania przez konta zewnętrzne (Google, Facebook) ani integracji z systemami księgowymi. Do potwierdzenia na wywiadzie z klientem.
+W MVP nie przewidujemy integracji z systemami księgowymi. Po wywiadzie symulowanym doszło logowanie kontem Google (zwrot akcji Z-01).
 
 ## 1.7. Założenia i ograniczenia
 
 | Typ | Opis |
 |---|---|
-| Założenie | Gracz korzysta z platformy przez przeglądarkę internetową na komputerze lub urządzeniu mobilnym i ma dostęp do Internetu. |
-| Założenie | Płatności obsługuje zewnętrzny System płatności. WSPA GIER nie przechowuje danych kart płatniczych. |
-| Założenie | Wydawca dostarcza gotowe pliki Gry i odpowiada za ich treść oraz prawa autorskie. Administrator sprawdza Grę przed publikacją. |
+| Założenie | Gracz korzysta z platformy przez przeglądarkę internetową na komputerze lub urządzeniu mobilnym i ma dostęp do Internetu (potwierdzone w wywiadzie symulowanym, U-09). |
+| Założenie | Płatności obsługuje zewnętrzny System płatności. WSPA GIER nie przechowuje danych kart płatniczych (potwierdzone, U-03: karta i BLIK). |
+| Założenie | Wydawca dostarcza gotowe pliki Gry i odpowiada za ich treść oraz prawa autorskie. Administrator sprawdza Grę przed publikacją w ciągu 5 dni roboczych (potwierdzone, U-06). |
 | Założenie | Gracz pobiera Grę i uruchamia ją na swoim urządzeniu. Platforma nie uruchamia Gier w przeglądarce. |
 | Założenie | W MVP platforma działa w języku polskim, a ceny są podawane w złotych (PLN). |
 | Założenie | Administrator i Agent wsparcia to pracownicy operatora platformy. |
@@ -114,6 +116,7 @@ W MVP nie przewidujemy logowania przez konta zewnętrzne (Google, Facebook) ani 
 | Ograniczenie | Wyłącznie darmowe lub otwarte technologie. Część 1 (dokumentacja) i część 2 (implementacja) realizuje zespół 5-osobowy w ramach przedmiotu. |
 | Ograniczenie | Przetwarzanie danych osobowych Graczy i Wydawców zgodnie z RODO. |
 | Ograniczenie | Zwroty za treści cyfrowe zgodnie z ustawą o prawach konsumenta. |
+| Ograniczenie | Logowanie zewnętrzne kontem Google (Z-01) zgodnie z warunkami korzystania z usług Google; logowanie e-mailem i hasłem musi pozostać dostępne. |
 
 ## 1.8. Rozwiązania konkurencyjne / analiza istniejących narzędzi
 
@@ -121,3 +124,26 @@ W MVP nie przewidujemy logowania przez konta zewnętrzne (Google, Facebook) ani 
 |---|---|---|---|
 | Steam | Rozbudowana biblioteka gier, możliwość tworzenia własnych kolekcji i kategorii, filtrowanie gier, wyszukiwarka, rekomendacje dopasowane do Gracza. Wyświetla okładki, opisy, osiągnięcia i informacje o czasie gry. | Duża liczba funkcji może przytłaczać nowych Graczy. | Należy zadbać o prostą nawigację i intuicyjność interfejsu. |
 | Epic Games Store | Prosty widok biblioteki z okładkami gier, wyszukiwarka, filtrowanie według gatunku i innych cech, możliwość tworzenia własnych kolekcji oraz oznaczania ulubionych gier. | Mniej rozbudowane możliwości organizowania biblioteki niż w Steam. | Warto zastosować układ Biblioteki gier oparty na okładkach, prostą wyszukiwarkę, filtrowanie i oznaczanie ulubionych pozycji. |
+
+### Analiza luk (oczekiwania vs gotowe rozwiązania vs MVP)
+
+| Oczekiwanie klienta | Steam | Epic Games Store | Nasze MVP | Luka / decyzja |
+|---|---|---|---|---|
+| Prosty interfejs dla nowych Graczy | rozbudowany, przytłacza | prostszy | tak (WNF-08, CEL-01) | wyróżnik platformy → M |
+| Samodzielna publikacja Gry przez małego Wydawcę | tak, opłata za każdą Grę | tak, opłata za każdą Grę | tak (WF-16, WF-17) | wyróżnik platformy → M |
+| Reklamacje rozpatrywane na platformie z historią Zamówień | tak (automatyczne zwroty) | tak (formularz) | tak (WF-12, WF-13) | M |
+| Płatności kartą i BLIK | tak | tak | integracja z Systemem płatności | kupujemy usługę operatora, nie budujemy (C4: System_Ext) |
+| Logowanie kontem Google | tak | tak | tak (WF-27) | zwrot akcji Z-01 → S; integracja z Dostawcą tożsamości |
+| Raporty sprzedaży dla Wydawców | tak | tak | nie | W: poza MVP (WF-25, U-10) |
+| Lista życzeń i rekomendacje | tak | tak (lista życzeń) | nie | W / rozszerzenie po MVP (WF-26) |
+| Własny launcher i automatyczne pobieranie nowych Wersji gry | tak | tak | nie | poza zakresem: Gracz pobiera aktualną Wersję gry (WF-08) |
+
+### Kupić czy zbudować
+
+| Obszar | Decyzja | Uzasadnienie |
+|---|---|---|
+| Katalog gier, Biblioteka gier, Zamówienia, Reklamacje, Weryfikacja gry | budujemy | rdzeń platformy i źródło przewagi nad konkurencją |
+| Płatności i Zwroty | integrujemy (System płatności) | funkcja typowa, wymaga licencji i bezpieczeństwa kart; gotowi operatorzy |
+| Logowanie kontem Google | integrujemy (Dostawca tożsamości) | standardowy protokół OAuth 2.0 / OpenID Connect, nie przechowujemy haseł Google |
+| Wysyłka e-mail | integrujemy (Serwer e-mail) | funkcja typowa, tania usługa zewnętrzna |
+| Przechowywanie i pobieranie plików Gier | integrujemy (usługa przechowywania plików) | duże pliki, wymagana przepustowość; gotowe usługi chmurowe |
