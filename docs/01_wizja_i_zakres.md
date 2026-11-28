@@ -53,10 +53,10 @@ quadrantChart
 
 | Aktor | Kim jest | Jak często korzysta | Kompetencje cyfrowe |
 |---|---|---|---|
-| Gracz | Osoba z Kontem, która przegląda Katalog gier, kupuje Gry, pobiera je z Biblioteki gier, wystawia Oceny i Recenzje oraz składa Reklamacje | | |
-| Wydawca | Studio lub osoba z Kontem deweloperskim, która publikuje Gry, wgrywa Wersje gry i ustala ceny oraz Promocje | | |
-| Agent wsparcia | Pracownik działu obsługi, który rozpatruje Reklamacje i zleca Zwroty | | |
-| Administrator | Pracownik platformy z najwyższymi uprawnieniami: weryfikuje Gry, moderuje Recenzje, rozpatruje Zgłoszenia naruszenia, zarządza Kontami | | |
+| Gracz | Osoba z Kontem, która przegląda Katalog gier, kupuje Gry, pobiera je z Biblioteki gier, wystawia Oceny i Recenzje oraz składa Reklamacje | Kilka razy w tygodniu (Biblioteka gier), zakupy kilka razy w miesiącu, częściej w czasie Promocji | Od podstawowych (nowi, amatorscy Gracze) do wysokich (Gracze profesjonalni) |
+| Wydawca | Studio lub osoba z Kontem deweloperskim, która publikuje Gry, wgrywa Wersje gry i ustala ceny oraz Promocje | Kilka razy w miesiącu, częściej przy premierze Gry lub nowej Wersji gry | Wysokie (praca z plikami, opisami, cennikami) |
+| Agent wsparcia | Pracownik działu obsługi, który rozpatruje Reklamacje i zleca Zwroty | Codziennie, przez cały dzień pracy | Średnie do wysokich (praca w systemie zgłoszeń) |
+| Administrator | Pracownik platformy z najwyższymi uprawnieniami: weryfikuje Gry, moderuje Recenzje, rozpatruje Zgłoszenia naruszenia, zarządza Kontami | Codziennie | Wysokie |
 
 System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem.
 
@@ -119,4 +119,5 @@ W MVP nie przewidujemy logowania przez konta zewnętrzne (Google, Facebook) ani 
 
 | Rozwiązanie | Co robi dobrze | Czego brakuje | Wniosek dla naszego projektu |
 |---|---|---|---|
-| | | | |
+| Steam | Rozbudowana biblioteka gier, możliwość tworzenia własnych kolekcji i kategorii, filtrowanie gier, wyszukiwarka, rekomendacje dopasowane do Gracza. Wyświetla okładki, opisy, osiągnięcia i informacje o czasie gry. | Duża liczba funkcji może przytłaczać nowych Graczy. | Należy zadbać o prostą nawigację i intuicyjność interfejsu. |
+| Epic Games Store | Prosty widok biblioteki z okładkami gier, wyszukiwarka, filtrowanie według gatunku i innych cech, możliwość tworzenia własnych kolekcji oraz oznaczania ulubionych gier. | Mniej rozbudowane możliwości organizowania biblioteki niż w Steam. | Warto zastosować układ Biblioteki gier oparty na okładkach, prostą wyszukiwarkę, filtrowanie i oznaczanie ulubionych pozycji. |
