@@ -58,4 +58,16 @@ Wartości bazowe celów z sekcji 1.2 (pytamy, jak jest dziś):
 2. Ile Gier, Graczy i Zamówień dziennie spodziewają się Państwo na starcie i po roku?
 3. Jakie raporty i zestawienia są potrzebne właścicielowi platformy i Wydawcom (np. sprzedaż, Zwroty)?
 
+### E. Jakość, bezpieczeństwo, ograniczenia
+
+1. Jakie dane osobowe Graczy i Wydawców platforma musi przechowywać i jak długo?
+2. Jak długo platforma może być niedostępna, zanim stanie się to poważnym problemem dla Państwa?
+3. Jakie przepisy lub umowy (np. prawa konsumenta przy zwrotach treści cyfrowych) musimy uwzględnić?
+
+### F. Priorytety i kryteria odbioru
+
+1. Gdyby pierwsza wersja mogła mieć tylko trzy funkcje, które by to były?
+2. Z czego mogą Państwo zrezygnować w pierwszej wersji, jeśli zabraknie czasu?
+3. Na podstawie czego odbiorą Państwo system jako gotowy?
+
 ## Notatki z wywiadu (protokół dopiszemy w M2)
