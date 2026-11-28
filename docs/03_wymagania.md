@@ -50,6 +50,7 @@ Kategorie jakości wg ISO/IEC 25010:2023 (w nawiasie nazwa angielska).
 | WNF-08 | Zdolność interakcji (interaction capability / usability) | Nowy Gracz bez instruktażu znajduje i kupuje wskazaną Grę w czasie ≤ 3 min w co najmniej 4 z 5 prób (CEL-01). | test z 5 Graczami, którzy nie znają platformy | M |
 | WNF-09 | Zdolność interakcji: inkluzywność (dostępność, accessibility) | Interfejs spełnia WCAG 2.2 na poziomie AA. | audyt narzędziem (axe / Lighthouse ≥ 90 w kategorii Accessibility) + ręczna lista kontrolna WCAG | S |
 | WNF-10 | Elastyczność (flexibility / portability) | Wszystkie ekrany Gracza działają bez przewijania poziomego od szerokości 360 px w dwóch ostatnich wersjach Chrome, Firefox, Safari i Edge (U-09). | test ręczny na liście przeglądarek i szerokości ekranu | S |
+| WNF-11 | Kompatybilność (compatibility) | Integracja z Systemem płatności przez jego API: 100% scenariuszy testowych operatora (płatność udana, odrzucona, Zwrot) kończy się poprawnym Statusem płatności; jedna Płatność nigdy nie obciąża Gracza dwukrotnie. | testy integracyjne w środowisku testowym (sandbox) operatora | M |
 
 ## 3.3. Historyjki użytkownika
 
@@ -247,6 +248,69 @@ Scenariusz: Niepoprawny NIP
   Gdy podam NIP „123”
   Wtedy zobaczę komunikat „NIP musi mieć 10 cyfr”
   I Konto nie zostanie utworzone
+```
+
+### US-12: Dodanie Gry
+
+**Jako** Wydawca **chcę** dodać Grę z opisem, Gatunkami, Ceną i plikami, **aby** udostępnić ją Graczom po Weryfikacji gry.
+
+- Wymaganie: WF-17 · Priorytet: M · Szacunek: L
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Przesłanie Gry do Weryfikacji gry (RB-07)
+  Zakładając że jestem zalogowanym Wydawcą
+  Gdy dodam Grę „Kosmiczna Farma 2” z Gatunkiem „Symulacja”, Ceną 59,99 zł i plikiem Wersji gry 1.0.0
+  Wtedy Gra otrzyma Status gry W_WERYFIKACJI
+  I nie będzie jeszcze widoczna w Katalogu gier
+
+Scenariusz: Brak plików Wersji gry
+  Zakładając że wypełniłem opis i Cenę Gry
+  Gdy spróbuję przesłać Grę do Weryfikacji gry bez pliku Wersji gry
+  Wtedy zobaczę komunikat „Dodaj pliki Gry”
+  I Gra pozostanie w Statusie gry SZKIC
+```
+
+### US-13: Nowa Wersja gry
+
+**Jako** Wydawca **chcę** wgrać nową Wersję gry z poprawkami, **aby** Gracze pobierali zawsze najnowszą wersję.
+
+- Wymaganie: WF-18 · Priorytet: S · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Wgranie nowej Wersji gry
+  Zakładając że Gra „Kosmiczna Farma 2” ma Status gry OPUBLIKOWANA i aktualną Wersję gry 1.2.0
+  Gdy wgram Wersję gry 1.2.1
+  Wtedy Gracze z Licencją przy kolejnym Pobraniu dostaną Wersję gry 1.2.1
+
+Scenariusz: Numer wersji już istnieje
+  Zakładając że Gra ma Wersję gry 1.2.0
+  Gdy spróbuję wgrać plik z numerem 1.2.0
+  Wtedy zobaczę komunikat „Ta Wersja gry już istnieje”
+```
+
+### US-14: Ustalenie Promocji
+
+**Jako** Wydawca **chcę** ustawić obniżkę Ceny mojej Gry na kilka dni, **aby** zwiększyć sprzedaż.
+
+- Wymaganie: WF-19 · Priorytet: S · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Poprawna Promocja (RB-05)
+  Zakładając że Gra „Kosmiczna Farma 2” kosztuje 59,99 zł i nie miała Promocji przez ostatnie 14 dni
+  Gdy ustawię Promocję −30% od 01.12.2026 do 07.12.2026
+  Wtedy w tym czasie Cena w Katalogu gier wyniesie 41,99 zł
+
+Scenariusz: Zbyt duża obniżka (RB-05)
+  Zakładając że ustalam Promocję dla tej Gry
+  Gdy podam obniżkę 95%
+  Wtedy zobaczę komunikat „Obniżka musi wynosić od 5% do 90%”
+  I Promocja nie zostanie zapisana
 ```
 
 ## 3.4. Reguły biznesowe
