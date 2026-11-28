@@ -92,12 +92,28 @@ System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem
 
 ## 1.6. Kontekst i systemy zewnętrzne
 
+| System zewnętrzny | Do czego służy | Co przekazujemy | Kierunek |
+|---|---|---|---|
+| System płatności (operator płatności) | Autoryzacja Płatności za Zamówienie i wykonanie Zwrotu po uznanej Reklamacji | kwota, numer Zamówienia, wynik autoryzacji, polecenie Zwrotu | WSPA GIER ↔ System płatności |
+| Serwer poczty e-mail | Wysyłka wiadomości do Gracza i Wydawcy: potwierdzenie rejestracji Konta, reset hasła, potwierdzenie Zamówienia, decyzja w sprawie Reklamacji | adres e-mail, treść wiadomości | WSPA GIER → e-mail |
+| Usługa przechowywania plików (chmura) | Przechowywanie plików Wersji gry wgranych przez Wydawcę i udostępnianie ich do pobrania Graczom z Licencją | pliki Wersji gry, link do pobrania | WSPA GIER ↔ usługa plików |
+
+W MVP nie przewidujemy logowania przez konta zewnętrzne (Google, Facebook) ani integracji z systemami księgowymi. Do potwierdzenia na wywiadzie z klientem.
+
 ## 1.7. Założenia i ograniczenia
 
 | Typ | Opis |
 |---|---|
-| Założenie | np. użytkownicy mają dostęp do Internetu i przeglądarki |
-| Ograniczenie | np. budżet: wyłącznie darmowe/otwarte technologie; realizacja w 1 semestr przez zespół N-osobowy |
+| Założenie | Gracz korzysta z platformy przez przeglądarkę internetową na komputerze lub urządzeniu mobilnym i ma dostęp do Internetu. |
+| Założenie | Płatności obsługuje zewnętrzny System płatności. WSPA GIER nie przechowuje danych kart płatniczych. |
+| Założenie | Wydawca dostarcza gotowe pliki Gry i odpowiada za ich treść oraz prawa autorskie. Administrator sprawdza Grę przed publikacją. |
+| Założenie | Gracz pobiera Grę i uruchamia ją na swoim urządzeniu. Platforma nie uruchamia Gier w przeglądarce. |
+| Założenie | W MVP platforma działa w języku polskim, a ceny są podawane w złotych (PLN). |
+| Założenie | Administrator i Agent wsparcia to pracownicy operatora platformy. |
+| Ograniczenie | Architektura klient-serwer z bazą danych przechowującą informacje o Kontach, Grach i Zamówieniach. |
+| Ograniczenie | Wyłącznie darmowe lub otwarte technologie. Część 1 (dokumentacja) i część 2 (implementacja) realizuje zespół 5-osobowy w ramach przedmiotu. |
+| Ograniczenie | Przetwarzanie danych osobowych Graczy i Wydawców zgodnie z RODO. |
+| Ograniczenie | Zwroty za treści cyfrowe zgodnie z ustawą o prawach konsumenta. |
 
 ## 1.8. Rozwiązania konkurencyjne / analiza istniejących narzędzi
 
