@@ -2,62 +2,62 @@
 
 ## 3.1. Wymagania funkcjonalne
 
-<!-- Priorytet MoSCoW: M (Must), S (Should), C (Could), W (Won't – tym razem nie). Źródło: kto/co zgłosiło wymaganie (INT-xx, wywiad z dnia…). -->
+Priorytet MoSCoW: M (Must), S (Should), C (Could), W (Won't – tym razem nie). Źródła: interesariusze INT-xx, zarys tematu zatwierdzony przez prowadzącego, ustalenia U-xx i zwrot akcji Z-01 z wywiadu symulowanego ([protokół](spotkania/wywiad-z-klientem.md)). Priorytety ustalone na wywiadzie; kwestie otwarte K-xx wyjaśniamy przez Issues `pytanie`.
 
 | ID | Wymaganie (System musi/powinien…) | Aktor | Priorytet | Źródło | Historyjki |
 |---|---|---|---|---|---|
-| WF-01 | System musi umożliwiać Klientowi utworzenie Rezerwacji wolnego Zasobu w wybranym Terminie. | Klient | M | INT-01, wywiad 1 | US-01, US-02 |
-| WF-02 | | | | | |
+| WF-01 | System musi umożliwiać Graczowi rejestrację Konta przez podanie adresu e-mail, nazwy wyświetlanej i hasła. | Gracz | M | INT-02, zarys tematu, rozdz. 3 | US-01 |
+| WF-02 | System musi umożliwiać Graczowi i Wydawcy zalogowanie się i wylogowanie z Konta. | Gracz, Wydawca | M | INT-02, INT-03, zarys tematu, rozdz. 3 | US-02 |
+| WF-03 | System powinien umożliwiać Graczowi zmianę hasła i ustawienie nowego hasła przez link wysłany e-mailem. | Gracz | S | INT-02, zarys tematu, rozdz. 5 | — |
+| WF-04 | System musi umożliwiać Graczowi przeglądanie Katalogu gier z filtrowaniem po Gatunku i Cenie. | Gracz | M | INT-02, zarys tematu, rozdz. 3 | US-03 |
+| WF-05 | System musi umożliwiać Graczowi wyszukanie Gry w Katalogu gier po nazwie. | Gracz | M | INT-02, zarys tematu, rozdz. 3 | US-04 |
+| WF-06 | System musi umożliwiać Graczowi złożenie Zamówienia na Grę i opłacenie go przez System płatności. | Gracz | M | INT-01, INT-02, INT-05, zarys tematu, rozdz. 3, U-03 | US-05 |
+| WF-07 | System musi po opłaceniu Zamówienia nadać Graczowi Licencję i dodać Grę do jego Biblioteki gier. | Gracz | M | INT-02, zarys tematu, rozdz. 3 | US-06 |
+| WF-08 | System musi umożliwiać Graczowi Pobranie aktualnej Wersji gry, na którą ma Licencję. | Gracz | M | INT-02, zarys tematu, rozdz. 3 | US-07 |
+| WF-09 | System powinien umożliwiać Graczowi ukrycie Gry w Bibliotece gier. | Gracz | C | zarys tematu, rozdz. 5 | — |
+| WF-10 | System powinien umożliwiać Graczowi z Licencją wystawienie Oceny Gry w skali 1–5. | Gracz | S | INT-02, zarys tematu, rozdz. 3, U-11 | US-08 |
+| WF-11 | System powinien umożliwiać Graczowi z Licencją napisanie Recenzji Gry. | Gracz | S | INT-02, zarys tematu, rozdz. 3 | US-08 |
+| WF-12 | System musi umożliwiać Graczowi złożenie Reklamacji dotyczącej kupionej Gry. | Gracz | M | INT-02, INT-04, zarys tematu, rozdz. 3, U-04 | US-09 |
+| WF-13 | System musi umożliwiać Agentowi wsparcia uznanie albo odrzucenie Reklamacji, a po uznaniu zlecenie Zwrotu w Systemie płatności. | Agent wsparcia | M | INT-04, INT-05, zarys tematu, rozdz. 2, U-05 | US-10 |
+| WF-14 | System powinien umożliwiać Graczowi wysłanie Zgłoszenia naruszenia dotyczącego Gry lub Recenzji. | Gracz | C | INT-02, zarys tematu, rozdz. 3 | — |
+| WF-15 | System powinien umożliwiać Graczowi usunięcie Konta. | Gracz | S | INT-06 (RODO), zarys tematu, rozdz. 5 | — |
+| WF-16 | System musi umożliwiać Wydawcy rejestrację Konta deweloperskiego. | Wydawca | M | INT-03, zarys tematu, rozdz. 3, U-12 | US-11 |
+| WF-17 | System musi umożliwiać Wydawcy dodanie Gry z opisem, Gatunkami, Ceną i plikami pierwszej Wersji gry oraz przesłanie jej do Weryfikacji gry. | Wydawca | M | INT-03, zarys tematu, rozdz. 3 | US-12 |
+| WF-18 | System powinien umożliwiać Wydawcy wgranie nowej Wersji gry dla opublikowanej Gry. | Wydawca | S | INT-03, zarys tematu, rozdz. 3 | US-13 |
+| WF-19 | System powinien umożliwiać Wydawcy ustalenie Promocji dla swojej Gry. | Wydawca | S | INT-03, zarys tematu, rozdz. 3, U-07 | US-14 |
+| WF-20 | System powinien umożliwiać Wydawcy wycofanie Gry ze sprzedaży. | Wydawca | S | INT-03, zarys tematu, rozdz. 5 | — |
+| WF-21 | System musi umożliwiać Administratorowi przeprowadzenie Weryfikacji gry zakończonej publikacją albo odrzuceniem z uzasadnieniem. | Administrator | M | INT-01, INT-04, zarys tematu, rozdz. 2, U-06 | US-15 |
+| WF-22 | System powinien umożliwiać Administratorowi rozpatrzenie Zgłoszenia naruszenia i usunięcie Recenzji. | Administrator | S | INT-04, zarys tematu, rozdz. 3 | — |
+| WF-23 | System powinien umożliwiać Administratorowi zablokowanie Konta naruszającego regulamin. | Administrator | S | INT-04, zarys tematu, rozdz. 3 | — |
+| WF-24 | System powinien wysyłać Graczowi e-mail z potwierdzeniem opłaconego Zamówienia. | Gracz | S | INT-02, sekcja 1.6 | — |
+| WF-25 | System nie będzie w MVP generował raportów sprzedaży dla Wydawców. | Wydawca | W | INT-03, U-10 | — |
+| WF-26 | System nie będzie w MVP udostępniał Listy życzeń. | Gracz | W | sekcja 1.5 (rozszerzenia), K-04 | — |
+| WF-27 | System powinien umożliwiać Graczowi rejestrację i zalogowanie się przez Logowanie zewnętrzne kontem Google. | Gracz | S | Z-01, wywiad symulowany | — |
 
 ## 3.2. Wymagania niefunkcjonalne
 
-<!-- Każde wymaganie MUSI być mierzalne/weryfikowalne. Kategorie jakości wg ISO/IEC 25010 (wyd. 2023; w nawiasie nazwy z wyd. 2011). Wymagania prawne to ograniczenia spoza modelu jakości – zapisujemy je w tej samej tabeli z kategorią „Ograniczenie prawne”. -->
+Kategorie jakości wg ISO/IEC 25010:2023 (w nawiasie nazwa angielska).
 
 | ID | Kategoria | Wymaganie | Miara / sposób weryfikacji | Priorytet |
 |---|---|---|---|---|
-| WNF-01 | Efektywność wydajnościowa | Lista dostępnych Zasobów ładuje się w czasie ≤ 2 s dla 95% żądań przy 50 równoczesnych użytkownikach. | test obciążeniowy | M |
-| WNF-02 | Bezpieczeństwo | | | |
-| WNF-03 | Zdolność interakcji (użyteczność) | | | |
-| WNF-04 | Zdolność interakcji: inkluzywność (dostępność, accessibility) | Interfejs spełnia WCAG 2.2 na poziomie AA. | audyt narzędziem + checklista | S |
-| WNF-05 | Niezawodność | | | |
-| WNF-06 | Łatwość utrzymania (utrzymywalność) | | | |
-| WNF-07 | Ograniczenie prawne (poza ISO 25010) | System przetwarza dane osobowe zgodnie z RODO. | przegląd z checklistą z 08_bezpieczenstwo | M |
+| | | | | |
 
 ## 3.3. Historyjki użytkownika
 
-<!--
-Format: Jako <aktor> chcę <cel>, aby <korzyść>.
-Kryteria akceptacji w formacie Given/When/Then (Zakładając/Gdy/Wtedy). Min. 2 kryteria na historyjkę, w tym 1 scenariusz błędny.
-Historyjka spełnia INVEST.
--->
+Format: Jako <aktor> chcę <cel>, aby <korzyść>. Kryteria akceptacji w formacie Given/When/Then (Zakładając/Gdy/Wtedy), min. 2 scenariusze, w tym błędny. Szacunek: S (≤ 3 pkt), M (5 pkt), L (8 pkt).
 
-### US-01: Rezerwacja wolnego zasobu
-
-**Jako** Klient **chcę** zarezerwować wolną salę w wybranym terminie, **aby** mieć pewność, że będzie dostępna na moje zajęcia.
-
-- Wymaganie: WF-01 · Priorytet: M · Szacunek: [punkty / S-M-L]
-
-**Kryteria akceptacji:**
-
-```gherkin
-Scenariusz: Udana rezerwacja
-  Zakładając że jestem zalogowanym Klientem
-  I sala 2.14 jest wolna 12.11 w godz. 10:00–12:00
-  Gdy wybiorę tę salę i ten termin i potwierdzę rezerwację
-  Wtedy rezerwacja otrzyma status POTWIERDZONA
-  I otrzymam e-mail z potwierdzeniem
-
-Scenariusz: Termin zajęty
-  Zakładając że sala 2.14 jest zajęta 12.11 w godz. 11:00–13:00
-  Gdy spróbuję zarezerwować ją na 10:00–12:00
-  Wtedy zobaczę komunikat o kolizji terminów
-  I rezerwacja nie zostanie utworzona
-```
-
-### US-02: …
 
 ## 3.4. Reguły biznesowe
 
 | ID | Reguła |
 |---|---|
-| RB-01 | np. Rezerwację można anulować najpóźniej 24 h przed jej rozpoczęciem. |
+| RB-01 | Ocenę i Recenzję Gry może wystawić tylko Gracz, który ma Licencję na tę Grę (U-11). Gracz ma najwyżej jedną Ocenę i jedną Recenzję na Grę i może je zmienić. |
+| RB-02 | Reklamację można złożyć najpóźniej 14 dni po opłaceniu Zamówienia i tylko wtedy, gdy Czas gry tej Gry jest krótszy niż 2 h (U-04). |
+| RB-03 | Agent wsparcia rozpatruje Reklamację w ciągu 3 dni roboczych od jej złożenia (U-05, CEL-03). |
+| RB-04 | Po uznaniu Reklamacji wykonuje się Zwrot całej zapłaconej kwoty, a Licencja na Grę zostaje cofnięta i Gra znika z Biblioteki gier. |
+| RB-05 | Promocja obniża Cenę o 5–90% i trwa od 1 do 30 dni. Między końcem jednej Promocji a początkiem następnej dla tej samej Gry musi minąć co najmniej 14 dni (U-07). |
+| RB-06 | Kupić można tylko Grę o Statusie gry OPUBLIKOWANA. Gracz nie może kupić Gry, na którą ma już Licencję. |
+| RB-07 | Nowa Gra trafia do Katalogu gier dopiero po pozytywnej Weryfikacji gry przez Administratora, przeprowadzonej w ciągu 5 dni roboczych od przesłania. Odrzucenie wymaga uzasadnienia (U-06). |
+| RB-08 | Po 5 nieudanych próbach logowania z rzędu Konto jest blokowane na 15 minut. |
+| RB-09 | Zamówienie nieopłacone w ciągu 30 minut od utworzenia otrzymuje status ANULOWANE. |
+| RB-10 | Gra o Statusie gry WYCOFANA pozostaje w Bibliotece gier Graczy, którzy mają na nią Licencję, ale nie można jej kupić. |
