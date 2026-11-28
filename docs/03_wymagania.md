@@ -47,10 +47,35 @@ Kategorie jakości wg ISO/IEC 25010:2023 (w nawiasie nazwa angielska).
 | WNF-05 | Niezawodność (reliability) | Dostępność (availability) platformy ≥ 99,5% w miesiącu, 24/7 (U-08); utrata danych (RPO) ≤ 24 h, czas przywrócenia (RTO) ≤ 4 h. | monitoring dostępności + test odtworzenia kopii zapasowej | M |
 | WNF-06 | Łatwość utrzymania (maintainability) | Pokrycie testami jednostkowymi logiki reguł biznesowych RB-01…RB-10 ≥ 80%; brak błędów krytycznych w analizie statycznej kodu. | raport pokrycia testów + raport analizy statycznej w każdym PR | S |
 | WNF-07 | Ograniczenie prawne (poza ISO 25010) | System przetwarza dane osobowe Graczy i Wydawców zgodnie z RODO; po usunięciu Konta dane osobowe są usuwane lub anonimizowane w ciągu 30 dni. | przegląd z listą kontrolną z 08_bezpieczenstwo | M |
+| WNF-08 | Zdolność interakcji (interaction capability / usability) | Nowy Gracz bez instruktażu znajduje i kupuje wskazaną Grę w czasie ≤ 3 min w co najmniej 4 z 5 prób (CEL-01). | test z 5 Graczami, którzy nie znają platformy | M |
+| WNF-09 | Zdolność interakcji: inkluzywność (dostępność, accessibility) | Interfejs spełnia WCAG 2.2 na poziomie AA. | audyt narzędziem (axe / Lighthouse ≥ 90 w kategorii Accessibility) + ręczna lista kontrolna WCAG | S |
+| WNF-10 | Elastyczność (flexibility / portability) | Wszystkie ekrany Gracza działają bez przewijania poziomego od szerokości 360 px w dwóch ostatnich wersjach Chrome, Firefox, Safari i Edge (U-09). | test ręczny na liście przeglądarek i szerokości ekranu | S |
 
 ## 3.3. Historyjki użytkownika
 
 Format: Jako <aktor> chcę <cel>, aby <korzyść>. Kryteria akceptacji w formacie Given/When/Then (Zakładając/Gdy/Wtedy), min. 2 scenariusze, w tym błędny. Szacunek: S (≤ 3 pkt), M (5 pkt), L (8 pkt).
+
+### US-01: Rejestracja Konta Gracza
+
+**Jako** Gracz **chcę** założyć Konto podając e-mail i hasło, **aby** móc kupować Gry i mieć je w jednej Bibliotece gier.
+
+- Wymaganie: WF-01 · Priorytet: M · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Udana rejestracja
+  Zakładając że nie mam Konta
+  Gdy podam e-mail anna.k@example.com, nazwę wyświetlaną „AnnaK” i hasło „Gry2026#bezp”
+  Wtedy Konto otrzyma Status konta AKTYWNE i Rolę konta GRACZ
+  I otrzymam e-mail z potwierdzeniem rejestracji
+
+Scenariusz: E-mail jest już zajęty
+  Zakładając że istnieje Konto z e-mailem anna.k@example.com
+  Gdy spróbuję zarejestrować Konto z tym samym e-mailem
+  Wtedy zobaczę komunikat „Konto z tym adresem e-mail już istnieje”
+  I nowe Konto nie zostanie utworzone
+```
 
 ### US-02: Logowanie do Konta
 
@@ -71,6 +96,47 @@ Scenariusz: Blokada po 5 nieudanych próbach (RB-08)
   Gdy po raz piąty podam błędne hasło
   Wtedy Konto otrzyma Status konta ZABLOKOWANE_CZASOWO na 15 minut
   I zobaczę komunikat „Zbyt wiele prób. Spróbuj ponownie za 15 minut”
+```
+
+### US-03: Przeglądanie Katalogu gier z filtrami
+
+**Jako** Gracz **chcę** filtrować Katalog gier po Gatunku i Cenie, **aby** szybko znaleźć Grę, która mnie interesuje i na którą mnie stać.
+
+- Wymaganie: WF-04 · Priorytet: M · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Filtrowanie po Gatunku i Cenie
+  Zakładając że w Katalogu gier są 3 Gry z Gatunku „Strategia”, z czego 2 kosztują do 50 zł
+  Gdy wybiorę Gatunek „Strategia” i Cenę „do 50 zł”
+  Wtedy zobaczę dokładnie 2 Gry z okładką, nazwą i Ceną
+
+Scenariusz: Brak Gier spełniających filtry
+  Zakładając że w Katalogu gier nie ma Gier z Gatunku „Wyścigi” do 10 zł
+  Gdy wybiorę te filtry
+  Wtedy zobaczę komunikat „Brak Gier spełniających kryteria” i przycisk „Wyczyść filtry”
+```
+
+### US-04: Wyszukiwanie Gry po nazwie
+
+**Jako** Gracz **chcę** wpisać nazwę Gry w wyszukiwarkę, **aby** od razu przejść do Gry, którą już znam.
+
+- Wymaganie: WF-05 · Priorytet: M · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Gra znaleziona
+  Zakładając że w Katalogu gier jest Gra „Kosmiczna Farma 2” o Statusie gry OPUBLIKOWANA
+  Gdy wpiszę „kosmiczna”
+  Wtedy na liście wyników zobaczę Grę „Kosmiczna Farma 2”
+
+Scenariusz: Gra niedostępna nie pojawia się w wynikach
+  Zakładając że Gra „Mroczny Las” ma Status gry ZABLOKOWANA
+  Gdy wpiszę „mroczny las”
+  Wtedy zobaczę komunikat „Nie znaleziono Gier”
+  I Gra „Mroczny Las” nie pojawi się w wynikach
 ```
 
 ### US-05: Zakup Gry
@@ -100,6 +166,26 @@ Scenariusz: Gra już kupiona (RB-06)
   Wtedy zamiast przycisku „Kup” zobaczę „W Bibliotece gier”
 ```
 
+### US-06: Biblioteka gier
+
+**Jako** Gracz **chcę** zobaczyć listę wszystkich moich Gier w jednym miejscu, **aby** łatwo wybrać Grę do pobrania.
+
+- Wymaganie: WF-07 · Priorytet: M · Szacunek: S
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Lista kupionych Gier
+  Zakładając że mam Licencje na 3 Gry
+  Gdy otworzę Bibliotekę gier
+  Wtedy zobaczę 3 Gry z okładką i przyciskiem „Pobierz”
+
+Scenariusz: Pusta Biblioteka gier
+  Zakładając że nie mam żadnej Licencji
+  Gdy otworzę Bibliotekę gier
+  Wtedy zobaczę komunikat „Nie masz jeszcze Gier” i link do Katalogu gier
+```
+
 ### US-07: Pobranie Gry
 
 **Jako** Gracz **chcę** pobrać aktualną Wersję gry z Biblioteki gier, **aby** zainstalować Grę na swoim komputerze.
@@ -119,6 +205,26 @@ Scenariusz: Brak Licencji
   Gdy spróbuję otworzyć link do Pobrania tej Gry
   Wtedy zobaczę komunikat „Nie masz dostępu do tej Gry”
   I Pobranie się nie rozpocznie
+```
+
+### US-08: Ocena i Recenzja Gry
+
+**Jako** Gracz **chcę** ocenić Grę w skali 1–5 i napisać Recenzję, **aby** pomóc innym Graczom w wyborze.
+
+- Wymaganie: WF-10, WF-11 · Priorytet: S · Szacunek: M
+
+**Kryteria akceptacji:**
+
+```gherkin
+Scenariusz: Wystawienie Oceny i Recenzji
+  Zakładając że mam Licencję na Grę „Kosmiczna Farma 2”
+  Gdy wystawię Ocenę 4 i napiszę Recenzję „Świetna fabuła, słaba optymalizacja”
+  Wtedy Ocena i Recenzja będą widoczne na stronie Gry z moim Profilem
+
+Scenariusz: Brak Licencji (RB-01)
+  Zakładając że nie mam Licencji na Grę „Mroczny Las”
+  Gdy otworzę stronę tej Gry
+  Wtedy nie zobaczę formularza Oceny i Recenzji, tylko informację „Ocenić Grę mogą tylko jej posiadacze”
 ```
 
 ### US-11: Rejestracja Konta deweloperskiego
