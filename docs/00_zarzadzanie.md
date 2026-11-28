@@ -12,11 +12,11 @@
 
 | Kamień | Termin oddania (tag) | Odpowiedzialny | Uwagi |
 |---|---|---|---|
-| M1 | «TERMIN_M1» | Dawid Cichosz | 48 h przed zajęciami 2; wizja i zakres, słownik wstępny, ryzyka, pytania do wywiadu |
-| M2 | «TERMIN_M2» | Dawid Cichosz | 48 h przed zajęciami 3; wymagania, historyjki, C4 kontekst, protokół wywiadu |
-| M3 | «TERMIN_M3» | Dawid Cichosz | 48 h przed zajęciami 4; UC, model dziedziny, ERD, architektura, ADR, bezpieczeństwo |
-| M4 | «TERMIN_M4» | Dawid Cichosz | 14 dni przed zajęciami 5 (miejsce na recenzję krzyżową); UI, wdrożenie, testy, macierz |
-| v1.0 | «TERMIN_V1» | Dawid Cichosz | 48 h przed zajęciami 5; wersja końcowa |
+| M1 | 06.11.2026 | Dawid Cichosz | 48 h przed 4. zjazdem (08.11.2026); wizja i zakres, słownik wstępny, ryzyka, pytania do wywiadu |
+| M2 | 04.12.2026 | Dawid Cichosz | 48 h przed 6. zjazdem (06.12.2026); wymagania, historyjki, C4 kontekst, protokół wywiadu |
+| M3 | 08.01.2027 | Dawid Cichosz | 48 h przed 8. zjazdem (10.01.2027); UC, model dziedziny, ERD, architektura, ADR, bezpieczeństwo |
+| M4 | 17.01.2027 | Dawid Cichosz | 14 dni przed 10. zjazdem, 31.01.2027 (miejsce na recenzję krzyżową); UI, wdrożenie, testy, macierz |
+| v1.0 | 29.01.2027 | Dawid Cichosz | 48 h przed 10. zjazdem (31.01.2027); wersja końcowa |
 
 ## Rejestr ryzyk
 

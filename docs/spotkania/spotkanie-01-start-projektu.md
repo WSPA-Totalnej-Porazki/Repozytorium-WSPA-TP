@@ -13,7 +13,7 @@
 4. Platforma GitHub, makiety w Figmie, diagramy w Mermaid (wpisane w dzienniku decyzji w `00_zarzadzanie.md`).
 5. Nazewnictwo: „Wydawca” zamiast „Deweloper”.
 6. Zasada pracy: jedna osoba na plik naraz, PR scala autor po zatwierdzeniu przez inną osobę.
-7. Podział zadań M1 jak niżej, termin tagu `m1`: «TERMIN_M1».
+7. Podział zadań M1 jak niżej, termin tagu `m1`: 06.11.2026.
 
 ## Zadania
 
