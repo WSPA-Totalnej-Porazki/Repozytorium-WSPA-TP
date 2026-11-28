@@ -12,13 +12,13 @@
 | Gra | Game | Produkt cyfrowy opublikowany przez Wydawcę, który Gracz może kupić, pobrać i uruchomić. Gra ma cenę, opis, Gatunki i Status gry. | tytuł, produkt | „Kosmiczna Farma 2”, cena 59,99 zł | Wydawca, Wersja gry, Gatunek, Status gry |
 | Gracz | Player | Osoba z Kontem, która przegląda Katalog gier, kupuje Gry, gra w nie i wystawia Oceny oraz Recenzje. | użytkownik, kupujący | Gracz „nick_123” kupuje Grę w Promocji | Konto, Biblioteka gier, Zamówienie |
 | Katalog gier | Catalog | Wszystkie Gry o Statusie gry OPUBLIKOWANA, które Gracz może przeglądać, wyszukiwać i filtrować. | sklep, oferta | Katalog gier filtrowany po Gatunku „Strategia” | Gra, Gatunek, Promocja |
-| Konto | Account | Zarejestrowany dostęp osoby do platformy (login, e-mail, hasło). Konto ma rolę: Gracz, Wydawca, Agent wsparcia lub Administrator. | użytkownik | Konto z e-mailem jan@example.com i rolą Gracz | Gracz, Wydawca, Logowanie zewnętrzne, Rola konta |
+| Konto | Account | Zarejestrowany dostęp osoby do platformy (login, e-mail, hasło). Konto ma rolę: Gracz, Wydawca, Agent wsparcia lub Administrator. | użytkownik | Konto z e-mailem jan@example.com i rolą Gracz | Gracz, Wydawca, Logowanie zewnętrzne, Rola konta, Status konta |
 | Konto deweloperskie | PublisherAccount | Konto z rolą WYDAWCA, które pozwala publikować Gry, wgrywać Wersje gry i ustalać ceny oraz Promocje. | panel dewelopera, konto wydawcy | Konto deweloperskie studia „Pixel Lublin” | Konto, Wydawca, Gra |
 | Licencja | License | Prawo Gracza do korzystania z konkretnej Gry, nadawane po opłaceniu Zamówienia. Licencja trafia do Biblioteki gier i może zostać cofnięta po Zwrocie. | klucz, prawo do gry | Licencja Gracza na Grę „Kosmiczna Farma 2” | Biblioteka gier, Zamówienie, Zwrot |
 | Lista życzeń | Wishlist | Lista Gier, które Gracz chce kupić w przyszłości. Poza MVP. | ulubione, obserwowane | 3 Gry na Liście życzeń Gracza | Gracz, Gra, Promocja |
 | Logowanie zewnętrzne | ExternalLogin | Zalogowanie się do Konta kontem Google zamiast e-mailem i hasłem. Logowanie e-mailem i hasłem pozostaje dostępne. | logowanie Google, SSO | Gracz loguje się kontem anna.k@gmail.com | Konto, Gracz, Dostawca tożsamości |
 | Ocena | Rating | Liczbowa ocena Gry wystawiona przez Gracza posiadającego Licencję, w skali 1–5. | gwiazdki, nota | Ocena 4/5 | Recenzja, Gra, Gracz |
-| Płatność | Payment | Przekazanie pieniędzy za Zamówienie przez zewnętrzny System płatności. Płatność ma status (autoryzowana, odrzucona, zwrócona). | transakcja, przelew | Płatność 59,99 zł kartą, autoryzowana | Zamówienie, System płatności, Zwrot |
+| Płatność | Payment | Przekazanie pieniędzy za Zamówienie przez zewnętrzny System płatności. Płatność ma Status płatności. | transakcja, przelew | Płatność 59,99 zł kartą, autoryzowana | Zamówienie, System płatności, Zwrot, Status płatności |
 | Pobranie | Download | Skopiowanie plików aktualnej Wersji gry z platformy na urządzenie Gracza. Możliwe tylko dla Gry, na którą Gracz ma Licencję. | ściągnięcie, instalacja | Pobranie Wersji gry 1.2.0 (4,3 GB) | Biblioteka gier, Licencja, Wersja gry |
 | Profil | Profile | Publiczne informacje o Graczu widoczne przy jego Recenzjach: nazwa wyświetlana i awatar. | strona gracza | Profil „nick_123” z awatarem | Gracz, Konto, Recenzja |
 | Promocja | Promotion | Obniżka ceny Gry ustalona przez Wydawcę na określony czas. | wyprzedaż, rabat, zniżka | −30% na Grę od 01.12 do 07.12 | Gra, Wydawca |
@@ -72,3 +72,29 @@
 | WYDAWCA | Publikuje Gry i zarządza nimi |
 | AGENT_WSPARCIA | Rozpatruje Reklamacje |
 | ADMINISTRATOR | Moderuje i zarządza platformą |
+
+### Status konta
+
+| Wartość | Znaczenie |
+|---|---|
+| AKTYWNE | Konto działa, osoba może się logować |
+| ZABLOKOWANE_CZASOWO | Konto zablokowane na 15 min po 5 nieudanych logowaniach (RB-08) |
+| ZABLOKOWANE | Administrator zablokował Konto za naruszenie regulaminu |
+| USUNIĘTE | Osoba usunęła Konto; dane osobowe usunięte lub zanonimizowane |
+
+### Status płatności
+
+| Wartość | Znaczenie |
+|---|---|
+| OCZEKUJĄCA | Płatność przekazana do Systemu płatności, czeka na wynik |
+| AUTORYZOWANA | System płatności potwierdził Płatność |
+| ODRZUCONA | System płatności odrzucił Płatność (np. brak środków) |
+| ZWRÓCONA | Wykonano Zwrot całej kwoty |
+
+### Status zgłoszenia naruszenia
+
+| Wartość | Znaczenie |
+|---|---|
+| NOWE | Gracz wysłał Zgłoszenie naruszenia |
+| ROZPATRZONE_ZASADNE | Administrator usunął Recenzję lub zablokował Grę |
+| ROZPATRZONE_NIEZASADNE | Administrator nie stwierdził naruszenia |
