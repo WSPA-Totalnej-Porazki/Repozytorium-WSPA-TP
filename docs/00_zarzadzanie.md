@@ -29,6 +29,8 @@
 | RYZ-05 | Konflikty w git lub commity niepodpięte do konta i utrata punktów za wkład | 2 | 2 | 4 | Unikanie: ochrona `main`, jedna osoba na plik naraz, sprawdzenie `user.email` u każdego | Kacper Graczyk | otwarte |
 | RYZ-06 | Pominięcie wymagań prawnych: RODO i zwroty za treści cyfrowe | 2 | 3 | 6 | Łagodzenie: pytania do klienta w grupie E, sekcja 08 bezpieczeństwo, ograniczenia w 1.7 | Natalia Stopa | otwarte |
 | RYZ-07 | Spiętrzenie pracy tuż przed terminem i spóźniony tag | 2 | 3 | 6 | Łagodzenie: wszystkie PR kamienia scalone 3 dni przed terminem, tag robi PM | Dawid Cichosz | otwarte |
+| RYZ-08 | Odpowiedzi na kwestie otwarte z wywiadu (K-02…K-04) zmienią reguły biznesowe lub priorytety po napisaniu historyjek | 2 | 2 | 4 | Łagodzenie: pytania jako Issues `pytanie` od razu po wywiadzie, odwołania do U-xx w WF i RB ułatwiają poprawki | Ewelina Pikul | otwarte |
+| RYZ-09 | Zmiany lub awaria Logowania zewnętrznego Google (zwrot akcji Z-01) | 1 | 2 | 2 | Łagodzenie: logowanie e-mailem i hasłem zawsze dostępne, standard OpenID Connect | Natalia Stopa | otwarte |
 
 ## Dziennik decyzji zespołu
 
@@ -41,3 +43,7 @@
 | M1, spotkanie robocze nr 1 | Nazewnictwo: „Wydawca” zamiast „Deweloper” (w zarysie tematu są oba). Uzasadnienie: jedno pojęcie, jedna nazwa. | cały zespół |
 | M1, spotkanie robocze nr 1 | Wywiad z klientem i spotkania zespołu w formie symulowanej (prowadzący nie odgrywa klienta): treść przygotowuje zespół na podstawie zarysu steam -0.2.pdf, każdy taki dokument ma na górze jawną adnotację. | cały zespół |
 | 27.11.2026 | Struktura repozytorium przywrócona zgodnie z szablonem (`docs/`, `.github/`), PR #12. | Natalia Stopa |
+| M2, wywiad symulowany | Zwrot akcji Z-01 (logowanie kontem Google): wchodzi do MVP jako WF-27 z priorytetem S, logowanie e-mailem i hasłem zostaje. Zmiany: 01 (1.5, 1.6, analiza luk), 02 (Logowanie zewnętrzne, Dostawca tożsamości), 03 (WF-27), 05 (C4), nowe ryzyko RYZ-09. | cały zespół |
+| M2, spotkanie robocze nr 2 | Wymagania M2 (WF, RB, priorytety MoSCoW) na podstawie wywiadu symulowanego (odpowiedzi klienta przygotował zespół) i zarysu tematu zatwierdzonego przez prowadzącego; kwestie otwarte K-02…K-04 wyjaśniamy przez Issues `pytanie`. | cały zespół |
+| M2, spotkanie robocze nr 2 | Kupić czy zbudować: płatności, e-mail i przechowywanie plików integrujemy z systemami zewnętrznymi, budujemy rdzeń (katalog, biblioteka, zamówienia, reklamacje, weryfikacja). Szczegóły w 01, analiza luk. | cały zespół |
+| M2, spotkanie robocze nr 2 | Raporty sprzedaży i Lista życzeń z priorytetem W (poza MVP), żeby M nie przekraczało ok. 60% pracy. | cały zespół |
