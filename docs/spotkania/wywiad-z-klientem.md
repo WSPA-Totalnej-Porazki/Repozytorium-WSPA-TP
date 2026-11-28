@@ -39,6 +39,12 @@ Wartości bazowe celów z sekcji 1.2 (pytamy, jak jest dziś):
 2. Proszę opisać sytuację, w której obecne platformy zawiodły Gracza albo Wydawcę. Co się wtedy stało?
 3. Po czym za rok poznają Państwo, że platforma odniosła sukces?
 
+### B. Użytkownicy i ich praca
+
+1. Kim są Gracze, do których chcą Państwo dotrzeć w pierwszej kolejności, i jak dziś kupują Gry?
+2. Na jakich urządzeniach i w jakich sytuacjach Gracz najczęściej przegląda Katalog gier i kupuje Gry?
+3. Jak wygląda dzień pracy osoby z działu obsługi, która rozpatruje Reklamacje?
+
 ### C. Procesy i przypadki szczególne
 
 1. Proszę opisać krok po kroku, jak Wydawca ma dodać nową Grę, od założenia Konta do momentu, gdy Gracz może ją kupić.
