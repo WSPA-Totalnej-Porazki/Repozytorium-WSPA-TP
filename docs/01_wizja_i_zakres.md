@@ -21,13 +21,44 @@
 
 | ID | Interesariusz | Opis / rola | Oczekiwania wobec systemu | Wpływ (W/Ś/N) | Zainteresowanie (W/Ś/N) |
 |---|---|---|---|---|---|
-| INT-01 | | | | | |
+| INT-01 | Właściciel platformy (klient) | Firma zamawiająca system i prowadząca platformę WSPA GIER | Konkurencyjna platforma, przychód ze sprzedaży Gier, rosnąca liczba Graczy i Wydawców | W | W |
+| INT-02 | Gracz | Osoba kupująca Gry i korzystająca z Biblioteki gier | Szybkie znalezienie i zakup Gry, prosty interfejs, bezpieczna Płatność, łatwe pobieranie | Ś | W |
+| INT-03 | Wydawca | Duże studio, małe lub niezależne studio publikujące Gry | Samodzielna publikacja Gry i Wersji gry, kontrola cen i Promocji, dotarcie do Graczy | Ś | W |
+| INT-04 | Dział obsługi (Agent wsparcia, Administrator) | Pracownicy platformy rozpatrujący Reklamacje i moderujący treści | Pełna historia Zamówień Gracza w jednym miejscu, szybkie rozpatrywanie Reklamacji i Zgłoszeń naruszenia | Ś | Ś |
+| INT-05 | Operator płatności | Zewnętrzna firma autoryzująca Płatności i wykonująca Zwroty | Poprawne i bezpieczne żądania Płatności i Zwrotów zgodne z jego API | Ś | N |
+| INT-06 | Prezes UODO | Organ nadzorczy w zakresie ochrony danych osobowych | Przetwarzanie danych Graczy i Wydawców zgodnie z RODO | W | N |
+
+INT-05 i INT-06 nie są użytkownikami systemu.
+
+### Mapa interesariuszy
+
+```mermaid
+quadrantChart
+    title Mapa interesariuszy
+    x-axis "Niskie zainteresowanie" --> "Wysokie zainteresowanie"
+    y-axis "Niski wpływ" --> "Wysoki wpływ"
+    quadrant-1 "Zarządzać blisko"
+    quadrant-2 "Utrzymywać satysfakcję"
+    quadrant-3 "Monitorować"
+    quadrant-4 "Informować na bieżąco"
+    "INT-01 Właściciel": [0.9, 0.9]
+    "INT-02 Gracz": [0.85, 0.55]
+    "INT-03 Wydawca": [0.8, 0.45]
+    "INT-04 Dział obsługi": [0.6, 0.4]
+    "INT-05 Operator płatności": [0.2, 0.45]
+    "INT-06 UODO": [0.15, 0.85]
+```
 
 ## 1.4. Użytkownicy systemu (aktorzy)
 
 | Aktor | Kim jest | Jak często korzysta | Kompetencje cyfrowe |
 |---|---|---|---|
-| | | | |
+| Gracz | Osoba z Kontem, która przegląda Katalog gier, kupuje Gry, pobiera je z Biblioteki gier, wystawia Oceny i Recenzje oraz składa Reklamacje | | |
+| Wydawca | Studio lub osoba z Kontem deweloperskim, która publikuje Gry, wgrywa Wersje gry i ustala ceny oraz Promocje | | |
+| Agent wsparcia | Pracownik działu obsługi, który rozpatruje Reklamacje i zleca Zwroty | | |
+| Administrator | Pracownik platformy z najwyższymi uprawnieniami: weryfikuje Gry, moderuje Recenzje, rozpatruje Zgłoszenia naruszenia, zarządza Kontami | | |
+
+System płatności jest systemem zewnętrznym (sekcja 1.6), a nie użytkownikiem.
 
 ## 1.5. Zakres systemu
 
